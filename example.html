@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Contest Page 1 - Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+    }
+
+    .container {
+      width: 500px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    input[type="text"], input[type="password"], input[type="submit"] {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: none;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #3e8e41;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Contest Page 1 - Login</h2>
+    <form id="login-form">
+      <label for="mobile-number">Mobile Number:</label>
+      <input type="text" id="mobile-number" name="mobile-number" required>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+      <input type="submit" value="Login">
+    </form>
+    <p id="status"></p>
+  </div>
+
+  <script>
+    // Get the login time
+    const loginTime = new Date().getTime();
+
+    const loginForm = document.getElementById('login-form');
+    const mobileNumberInput = document.getElementById('mobile-number');
+    const nameInput = document.getElementById('name');
+    const statusText = document.getElementById('status');
+
+    loginForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const mobileNumber = mobileNumberInput.value;
+      const name = nameInput.value;
+
+      // Store the login time and user information in local storage
+      localStorage.setItem('loginTime', loginTime);
+      localStorage.setItem('mobileNumber', mobileNumber);
+      localStorage.setItem('name', name);
+
+      statusText.textContent = 'Logged in successfully!';
+      setTimeout(() => {
+        window.location.href = 'page2.html';
+     }, 0);
+    });
+  </script>
+    
+
+</body>
+</html>
